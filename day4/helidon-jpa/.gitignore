@@ -1,11 +1,15 @@
 /target/
 
 .project
-.settings/
+.settings
 .classpath
 .vscode
 
 logs
 
 .DS_Store
+
+/PutObjectStoreDirHere/
+
+/ObjectStore/
 

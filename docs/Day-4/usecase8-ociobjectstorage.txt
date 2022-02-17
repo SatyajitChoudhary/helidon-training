@@ -1,0 +1,42 @@
+Step 1
+Create a Bucket and Objects in Bucket
+Name of bucket -- demobucket
+Name of object--testfileReadme.md (take any text file and load it in object).
+Observe Compartment-ID
+observe visibility
+
+Step 2
+git clone
+sh oci-setup.sh
+ --passphrase blank
+ --compartment id
+
+Step 3
+sh ./oci-setup.sh
+sh oci-env
+
+Step 4
+verify pom.xml
+
+Step 5
+mvn package
+java -Doci.auth.fingerprint="${OCI_AUTH_FINGERPRINT}" \
+    -Doci.auth.passphraseCharacters="${OCI_AUTH_PASSPHRASE}" \
+    -Doci.auth.privateKey="${OCI_AUTH_PRIVATEKEY}" \
+    -Doci.auth.tenancy="${OCI_AUTH_TENANCY}" \
+    -Doci.auth.user="${OCI_AUTH_USER}" \
+    -Doci.objectstorage.compartmentId="${OCI_OBJECTSTORAGE_COMPARTMENT}" \
+    -Doci.objectstorage.region="${OCI_OBJECTSTORAGE_REGION}" \
+    -jar target/helidon-examples-integrations-cdi-oci-objectstorage.jar
+
+Step 6
+curl http://localhost:8080/logo/ocuocictrng10/demobucket/testfileopenapi
+
+
+[DEFAULT]
+user=ocid1.user.oc1..aaaaaaaasjxqpicc7uhpucmflpol6jon4mcmjvbo55shtk4y45qpgymtxhwa
+fingerprint=e8:dc:d8:b7:e4:f4:aa:a4:8f:3e:58:26:6b:9b:fa:5e
+tenancy=ocid1.tenancy.oc1..aaaaaaaaxrs6jdnzbvuv3tdqwkw4sq6npltd5no7wsjoerco5s5awpd7ttja
+region=us-ashburn-1
+
+compartment-ocid=ocid1.compartment.oc1..aaaaaaaauymby65wtignm6uoemjid3uhot2s6xkvxgrcgxmgaqhl52xaroda
